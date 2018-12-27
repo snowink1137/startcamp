@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lotto Game</title>
+    <style>
+        .caution {
+            background: black;
+            margin: 4px;
+            padding: 4px;
+        }
+        .game {
+            border: 2px solid coral;
+            margin: 4px;
+            padding: 4px;
+        }
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        body {
+            font-family: 'Lato';
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+            font-family: 'Montserrat';
+        }
+        div {
+            align-content: center;
+        }
+        
+    </style>
+</head>
+<body>
+<h1>hi welcome to my homepage</h1>
+<div class="game">
+    <h2>로또 게임을 해봅시다!</h2>
+    <img src="https://lh3.googleusercontent.com/Y_pQPTARRo93CxSoMud_J336H9mUgxv8E5-SfGO_LBiAx-TnkAoz2X9afTibuxftjJs" width='200px' height='200px'><br>
+</div>
+<div class="game">
+    <h3 style="color:blue;">번호를 스스로 뽑고 싶으세요?</h3>
+    <h4>원하시는 번호 6개와 회차를 골라주시고, 제출 버튼을 눌러주세요!</h4>
+    
+    <form action="/self" method="POST">
+        회차를 입력해주세요! (1회~837회) : <input type="number" min="1" max="837" name="round" required /><br>
+        번호를 선택해주세요! : <input type="number" min="1" max="45" name="item1" required />
+        <input type="number" min="1" max="45" name="item2" required />
+        <input type="number" min="1" max="45" name="item3" required />
+        <input type="number" min="1" max="45" name="item4" required />
+        <input type="number" min="1" max="45" name="item5" required />
+        <input type="number" min="1" max="45" name="item6" required /><br>
+        <input type="submit" value="제출" class="button" />
+    </form>
+    <div class="caution">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <h1 style="color:red;">{{ message }}</h3>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    
+    <h4 style="color:red;">주의 사항</h4>
+    <h4>로또 번호는 중복되면 안돼요!</h4><br>
+</div>
+<div class="game">
+<h3 style="color:blue;">번호를 뽑아 드릴까요?</h3>
+<h4>원하시는 회차를 골라주시고 제출 버튼을 눌러주세요!</h4>
+
+<form action="/auto" method="POST">
+    <input type="number" min="1" max="837" name="round" required />
+    <input type="submit" value="제출" />
+</form>
+</div>
+
+</body>
+</html>

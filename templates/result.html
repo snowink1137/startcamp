@@ -1,0 +1,9 @@
+<h1>결과!!</h1>
+<h2>{{ result }}</h2>
+<h3>결과를 telegram으로 전송하기</h3>
+<form action="/telegram" method="POST">
+    <input type="number" name="ID" placeholder="YOUR_CHAT_ID" required />
+    <input type="hidden" name="result" value="{{ result }}" />
+    <input type="submit" />
+</form>
+<a href='http://startcamp-snowink1137.c9users.io'><button type="button">시작페이지로</button></a>
